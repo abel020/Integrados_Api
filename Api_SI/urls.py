@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
+from API.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('API.urls')),
     path('docs/', include_docs_urls(title='Api documentacion')),
+    path('renderizar/', renderizar_html, name='renderizar_html'),
 ]
