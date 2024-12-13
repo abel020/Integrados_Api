@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('API.urls')),
     path('docs/', include_docs_urls(title='Api documentacion')),
-    path('renderizar/', renderizar_html, name='renderizar_html'),
+    path('Scotizacion/', Scotizacion, name='Scotizacion'),
 ]
