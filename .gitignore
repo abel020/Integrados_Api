@@ -1,0 +1,6 @@
+Scripts
+__pycache__
+db.sqlite3
+include
+Lib
+pyvenv.cfg
