@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+import requests
 from rest_framework import viewsets
 
 from API.forms import SolicitudCotizacionForm
@@ -36,3 +37,12 @@ def Scotizacion(request):
         form = SolicitudCotizacionForm()
 
     return render(request, 'Scotizacion.html', {'form': form})
+
+def ObtenerCotizacion(request):
+    cotizaciones = SolicitudCotizacion.objects.all()
+    return render(request, 'Solicitud_exito.html', {'cotizaciones': cotizaciones})
+
+def api_proxy(request):
+    response = requests.get('https://contactomodulo-production.up.railway.app/api/clientes')
+    print(response.json())  # Imprime la respuesta para verificar su formato
+    return JsonResponse(response.json(), safe=False)

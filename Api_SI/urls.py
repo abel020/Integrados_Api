@@ -24,4 +24,5 @@ urlpatterns = [
     path('api/', include('API.urls')),
     path('docs/', include_docs_urls(title='Api documentacion')),
     path('Scotizacion/', Scotizacion, name='Scotizacion'),
+    path('api/proxy/', api_proxy, name='api_proxy'),
 ]
