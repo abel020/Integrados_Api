@@ -21,8 +21,17 @@ from API.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',index, name='index'),
     path('api/', include('API.urls')),
     path('docs/', include_docs_urls(title='Api documentacion')),
     path('Scotizacion/', Scotizacion, name='Scotizacion'),
-    path('api/proxy/', api_proxy, name='api_proxy'),
+    path('Scompra/', Scompra, name='Scompra'),
+    path('solicitud_exito/', solicitud_exito, name='solicitud_exito'),
+    path('acerca_erp/', acerca_erp, name='acerca_erp'),
+    path('soporte/', soporte, name='soporte'),
+    path('scompra/<int:pk>/actualizar/', actualizar_scompra, name='actualizar_scompra'),
+    path('scompra/<int:pk>/eliminar/', eliminar_scompra, name='eliminar_scompra'),
+    path('scotizacion/<int:pk>/actualizar/', actualizar_scotizacion, name='actualizar_scotizacion'),
+    path('scotizacion/<int:pk>/eliminar/', eliminar_scotizacion, name='eliminar_scotizacion'),
 ]
+

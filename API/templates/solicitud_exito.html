@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitud Exitosa</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    .btn-custom-actualizar {
+      background-color: #4CAF50;
+      /* Color verde */
+      color: white;
+      border: 2px solid #4CAF50;
+      /* Borde verde */
+      border-radius: 5px;
+      /* Bordes redondeados */
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    }
+
+    .btn-custom-eliminar {
+      background-color: #f44336;
+      /* Color rojo */
+      color: white;
+      border: 2px solid #f44336;
+      /* Borde rojo */
+      border-radius: 5px;
+      /* Bordes redondeados */
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    }
+
+    .btn-custom-actualizar:hover {
+      background-color: white;
+      /* Fondo blanco al pasar el puntero */
+      color: #4CAF50;
+      /* Color del texto verde */
+      border-color: #4CAF50;
+      /* Borde verde */
+    }
+
+    .btn-custom-eliminar:hover {
+      background-color: white;
+      /* Fondo blanco al pasar el puntero */
+      color: #f44336;
+      /* Color del texto rojo */
+      border-color: #f44336;
+      /* Borde rojo */
+    }
+
+    .btn-custom-actualizar:active,
+    .btn-custom-eliminar:active {
+      transform: scale(0.98);
+      /* Efecto de presionar el botón */
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-success">¡Operación realizada con éxito!</h2>
+    <p>La solicitud ha sido procesada correctamente. Aquí están las solicitudes registradas:</p>
+
+    <!-- Listado de Solicitudes de Cotización -->
+    <div class="mt-4">
+      <h4>Solicitudes de Cotización</h4>
+      {% if cotizaciones %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Correo</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th>Fecha Límite</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cotizacion in cotizaciones %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ cotizacion.nombre_cliente }}</td>
+            <td>{{ cotizacion.correo_cliente }}</td>
+            <td>{{ cotizacion.producto_solicitud }}</td>
+            <td>{{ cotizacion.cantidad_solicitud }}</td>
+            <td>{{ cotizacion.estado_solicitud }}</td>
+            <td>{{ cotizacion.fecha_limite|date:'d/m/Y H:i' }}</td>
+            <td>
+              <a href="{% url 'actualizar_scotizacion' cotizacion.pk %}"
+                class="btn btn-custom-actualizar btn-sm px-4 py-2" style="border-radius: 5px;">Actualizar</a>
+              <a href="{% url 'eliminar_scotizacion' cotizacion.pk %}" class="btn btn-custom-eliminar btn-sm px-4 py-2"
+                style="border-radius: 5px;"
+                onclick="return confirm('¿Estás seguro de eliminar esta orden?')">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No hay solicitudes de cotización registradas.</p>
+      {% endif %}
+    </div>
+
+    <!-- Listado de Órdenes de Compra -->
+    <div class="mt-4">
+      <h4>Órdenes de Compra</h4>
+      {% if compras %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Solicitud Asociada</th>
+            <th>Proveedor</th>
+            <th>Cantidad Aprobada</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Fecha de Cotización</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for compra in compras %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ compra.solicitud.producto_solicitud }}</td>
+            <td>{{ compra.proveedor }}</td>
+            <td>{{ compra.cantidad_aprobada }}</td>
+            <td>{{ compra.precio_unitario }}</td>
+            <td>{{ compra.total }}</td>
+            <td>{{ compra.estado }}</td>
+            <td>{{ compra.fecha_cotizacion|date:'d/m/Y H:i' }}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Acciones">
+                <!-- Botón Actualizar con estilo diferente -->
+                <a href="{% url 'actualizar_scompra' compra.pk %}" class="btn btn-custom-actualizar btn-sm px-4 py-2"
+                  style="border-radius: 5px;">Actualizar</a>
+                <!-- Botón Eliminar con estilo diferente -->
+                <a href="{% url 'eliminar_scompra' compra.pk %}" class="btn btn-custom-eliminar btn-sm px-4 py-2"
+                  style="border-radius: 5px;"
+                  onclick="return confirm('¿Estás seguro de eliminar esta orden?')">Eliminar</a>
+              </div>
+            </td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No hay órdenes de compra registradas.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Espaciado después de la última tabla -->
+  <div class="container mt-4 text-center">
+    <!-- Botón para regresar al índice -->
+    <button class="btn btn-primary" onclick="window.location.href='/'">Volver al Índice</button>
+  </div>
+</body>
+
+</html>
