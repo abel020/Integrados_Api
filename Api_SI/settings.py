@@ -149,4 +149,7 @@ STORAGES = {
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-e323b.up.railway.app',
+]
 
