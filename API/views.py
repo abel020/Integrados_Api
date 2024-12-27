@@ -183,7 +183,10 @@ def index(request):
     return render(request, 'index.html')
 
 def acerca_erp(request):
-    return render(request, 'acerca_erp.html')
+    return render(request, 'Acerca_ERP.html')
 
 def soporte(request):
-    return render(request, 'soporte.html')
+    return render(request, 'Soporte.html')
+
+def inicio(request):
+    return render(request, 'inicio.html')

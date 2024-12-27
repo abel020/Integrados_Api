@@ -1,75 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "index.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca del ERP - Mi Proyecto ERP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+{% block title %}Acerca del ERP - Mi Proyecto ERP{% endblock %}
 
-<body class="d-flex flex-column min-vh-100 bg-light">
+{% block content %}
+<div class="container flex-grow-1 text-center mt-5">
+    <h1 class="display-4 text-primary">¿Qué es nuestro ERP de Compras?</h1>
+    <p class="lead text-muted mb-4">Nuestro ERP de Compras está diseñado para ayudar a las empresas a gestionar sus compras de manera eficiente, centralizando todos los procesos relacionados con la cotización, compra, y administración de proveedores.</p>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mi ERP de Compras</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Acerca del ERP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Soporte</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Sección Acerca del ERP -->
-    <div class="container flex-grow-1 text-center mt-5">
-        <h1 class="display-4 text-primary">¿Qué es nuestro ERP de Compras?</h1>
-        <p class="lead text-muted mb-4">Nuestro ERP de Compras está diseñado para ayudar a las empresas a gestionar sus compras de manera eficiente, centralizando todos los procesos relacionados con la cotización, compra, y administración de proveedores.</p>
-
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-lg">
-                    <div class="card-body">
-                        <h5 class="card-title">Funcionalidades Principales</h5>
-                        <ul class="list-unstyled">
-                            <li><strong>Cotizaciones:</strong> Genera y gestiona cotizaciones con proveedores fácilmente.</li>
-                            <li><strong>Órdenes de Compra:</strong> Aprobación y seguimiento de órdenes de compra.</li>
-                            <li><strong>Historial de Compras:</strong> Mantén un registro detallado de todas las compras realizadas.</li>
-                            <li><strong>Informes:</strong> Genera informes personalizados sobre el estado de tus compras y cotizaciones.</li>
-                        </ul>
-                    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Funcionalidades Principales</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Cotizaciones:</strong> Genera y gestiona cotizaciones con proveedores fácilmente.</li>
+                        <li><strong>Órdenes de Compra:</strong> Aprobación y seguimiento de órdenes de compra.</li>
+                        <li><strong>Historial de Compras:</strong> Mantén un registro detallado de todas las compras realizadas.</li>
+                        <li><strong>Informes:</strong> Genera informes personalizados sobre el estado de tus compras y cotizaciones.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <div class="mt-5">
-            <h4>¿Cómo puede ayudarte?</h4>
-            <p class="text-muted">Este ERP está pensado para facilitar la toma de decisiones al centralizar toda la información de compras, proveedores y órdenes en un solo lugar, brindándote visibilidad en tiempo real sobre el estado de tu negocio.</p>
-        </div>
     </div>
 
-    <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <div class="container">
-            <p>&copy; 2024 Mi ERP de Compras. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="mt-5">
+        <h4>¿Cómo puede ayudarte?</h4>
+        <p class="text-muted">Este ERP está pensado para facilitar la toma de decisiones al centralizar toda la información de compras, proveedores y órdenes en un solo lugar, brindándote visibilidad en tiempo real sobre el estado de tu negocio.</p>
+    </div>
+</div>
+{% endblock %}

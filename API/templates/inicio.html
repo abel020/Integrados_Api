@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %}Inicio - Mi Proyecto ERP{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 text-primary">Bienvenido a tu ERP de Compras</h1>
+    <p class="lead text-muted mb-5">Gestiona tus cotizaciones y órdenes de compra de manera eficiente y fácil.</p>
+</div>
+<div class="d-flex flex-column align-items-center">
+    <div class="card w-75 mb-4 shadow-lg" id="cardCotizacion">
+        <div class="card-body text-center">
+            <h5 class="card-title text-info">Cotizaciones de Compras</h5>
+            <p class="card-text">Crea y gestiona tus cotizaciones de compras con facilidad y rapidez.</p>
+            <a href="/Scotizacion/" class="btn btn-info btn-lg">Ir a Cotizaciones</a>
+        </div>
+    </div>
+
+    <div class="card w-75 shadow-lg" id="cardCompra">
+        <div class="card-body text-center">
+            <h5 class="card-title text-success">Órdenes de Compra</h5>
+            <p class="card-text">Administra y visualiza las órdenes de compra aprobadas con un solo clic.</p>
+            <a href="/Scompra/" class="btn btn-success btn-lg">Ir a Órdenes de Compra</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

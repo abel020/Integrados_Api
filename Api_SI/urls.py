@@ -21,7 +21,7 @@ from API.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index, name='index'),
+    path('',inicio, name='inicio'),
     path('api/', include('API.urls')),
     path('docs/', include_docs_urls(title='Api documentacion')),
     path('Scotizacion/', Scotizacion, name='Scotizacion'),

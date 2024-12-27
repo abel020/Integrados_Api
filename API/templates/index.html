@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Mi Proyecto ERP</title>
+    <title>{% block title %}Mi Proyecto ERP{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card:hover {
@@ -16,58 +16,30 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100 bg-light">
-
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mi ERP de Compras</a>
+            <a class="navbar-brand" href="/">Mi ERP de Compras</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- Enlace de inicio -->
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Inicio</a>
-                    </li>
-                    <!-- Enlace Acerca del ERP -->
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/acerca_erp/' %}active{% endif %}" href="/acerca_erp/">Acerca del ERP</a>
-                    </li>
-                    <!-- Enlace Soporte -->
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/soporte/' %}active{% endif %}" href="/soporte/">Soporte</a>
-                    </li>           
+                    <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'acerca_erp' %}">Acerca del ERP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'soporte' %}">Soporte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'solicitud_exito' %}">Ver Resumen de Solicitudes</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Contenido principal -->
-    <div class="container flex-grow-1 text-center mt-5">
-        <h1 class="display-4 text-primary">Bienvenido a tu ERP de Compras</h1>
-        <p class="lead text-muted mb-5">Gestiona tus cotizaciones y órdenes de compra de manera eficiente y fácil.</p>
-        
-        <div class="d-flex flex-column align-items-center">
-            <!-- Card para Cotizaciones -->
-            <div class="card w-75 mb-4 shadow-lg" id="cardCotizacion">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-info">Cotizaciones de Compras</h5>
-                    <p class="card-text">Crea y gestiona tus cotizaciones de compras con facilidad y rapidez.</p>
-                    <a href="/Scotizacion/" class="btn btn-info btn-lg">Ir a Cotizaciones</a>
-                </div>
-            </div>
-
-            <!-- Card para Órdenes de Compra -->
-            <div class="card w-75 shadow-lg" id="cardCompra">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-success">Órdenes de Compra</h5>
-                    <p class="card-text">Administra y visualiza las órdenes de compra aprobadas con un solo clic.</p>
-                    <a href="/Scompra/" class="btn btn-success btn-lg">Ir a Órdenes de Compra</a>
-                </div>
-            </div>
-        </div>
+    <div class="container flex-grow-1 mt-5">
+        {% block content %}
+        <!-- Contenido específico de cada página -->
+        {% endblock %}
     </div>
 
     <!-- Pie de página -->
@@ -80,21 +52,6 @@
     <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript personalizado para efectos adicionales -->
-    <script>
-        // Efecto de animación al pasar el ratón sobre las tarjetas
-        const cards = document.querySelectorAll('.card');
-
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.classList.add('shadow-lg');  // Añadir sombra para resaltado
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.classList.remove('shadow-lg');  // Remover sombra cuando el ratón sale
-            });
-        });
-    </script>
 </body>
+
 </html>
