@@ -98,21 +98,21 @@ El sistema también consume varias APIs para enriquecer la funcionalidad de la a
 ## Capturas de Pantalla
 
 ### Menú Principal
-![Menú Principal](stactifiles/rest_framework/img/menu.jpeg)
+![Menú Principal](staticfiles/rest_framework/img/menu.jpeg)
 
 ### Formulario de Solicitud de Cotización
-![Formulario de Solicitud de Cotización](stactifiles/rest_framework/img/FCot.jpeg)
+![Formulario de Solicitud de Cotización](staticfiles/rest_framework/img/FCot.jpeg)
 
 ### Formulario de Orden de Compra
-![Formulario de Orden de Compra](stactifiles/rest_framework/img/FCom.jpeg)
+![Formulario de Orden de Compra](staticfiles/rest_framework/img/FCom.jpeg)
 
 ### Resumen de Solicitudes
-![Resumen de Solicitudes](stactifiles/rest_framework/img/Resumen.jpeg)
+![Resumen de Solicitudes](staticfiles/rest_framework/img/Resumen.jpeg)
 
-![Resumen de Solicitudes](stactifiles/rest_framework/img/ResumenCompra.jpeg)
+![Resumen de Solicitudes](staticfiles/rest_framework/img/ResumenCompra.jpeg)
 
 ### API REST Framework
-![API REST Framework](stactifiles/rest_framework/img/menu.jpeg)
+![API REST Framework](staticfiles/rest_framework/img/menu.jpeg)
 
 ## Despliegue
 
